@@ -34,7 +34,7 @@ for(directory in dirs){
                   quiet = TRUE)
   }
   
-  lapply(1:nrow(wget),
+  shh <- lapply(1:nrow(wget),
          download)
 }
 

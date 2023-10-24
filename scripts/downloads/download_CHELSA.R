@@ -2,8 +2,7 @@
 rm(list = ls())
 files <- list.files("input/CHELSA_TraCE")
 {
-  if(length(files) < 121){
-    cat("\n Downloading CHELSA-TraCE paleo climate (this might take a while)")
+    cat("\n Downloading CHELSA-TraCE paleo climate.")
     #get urls for download
     paths <- readLines("input/CHELSA_TraCE/paths.txt")
     
@@ -16,6 +15,7 @@ files <- list.files("input/CHELSA_TraCE")
       name <- tail(strsplit(path,"/")[[1]],1)
       #make destination filepath
       dest <- paste0("input/CHELSA_TraCE/",name)
+      
       #download if not already there
       if(!file.exists(dest)){
         download.file(path,
@@ -27,8 +27,8 @@ files <- list.files("input/CHELSA_TraCE")
     }
     
     #download all files
-    lapply(paths,
+    shh <- lapply(paths,
            download_nicely)
-  }
+
 }
 

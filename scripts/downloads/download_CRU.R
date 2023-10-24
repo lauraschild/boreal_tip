@@ -3,8 +3,7 @@ rm(list = ls())
 files <- list.files("input/CRU")
 
 {
-  if(length(files) < 5){
-    cat("\n Downloading and unzipping CRU modern climate (this should be quick)")
+    cat("\n Downloading and unzipping CRU modern climate. ")
     
     #get urls for download
     paths <- readLines("input/CRU/paths.txt")
@@ -18,6 +17,7 @@ files <- list.files("input/CRU")
       name <- tail(strsplit(path,"/")[[1]],1)
       #make destination filepath
       dest <- paste0("input/CRU/",name)
+      
       #download if not already there
       if(!file.exists(dest)){
         download.file(path,
@@ -31,7 +31,7 @@ files <- list.files("input/CRU")
     }
     
     #download all files
-    lapply(paths,
+    shh <- lapply(paths,
            download_nicely)
-  }
+  
 }

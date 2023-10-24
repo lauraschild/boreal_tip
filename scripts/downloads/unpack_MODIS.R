@@ -1,7 +1,7 @@
 #script to unpack MODIS data
 rm(list = ls())
 
-if(!"MOD44" %in% list.files("input/MODIS")){
+if(length(list.files("input/MODIS")) == 1){
   archive <-list.files("input/MODIS",
                        pattern = ".zip")
   cat("\nUnzipping MODIS data.")
