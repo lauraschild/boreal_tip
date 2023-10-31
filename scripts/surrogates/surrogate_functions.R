@@ -2,10 +2,13 @@
 surrogate_wrap <- function(Dataset_ID,
                            pollen_df,
                            climate_df){
+  print(Dataset_ID)
   record_ages <- pollen_df$bin[pollen_df$Dataset_ID == Dataset_ID]
   continuous_temp <- climate_df$TJJA[climate_df$Dataset_ID == Dataset_ID]
   continuous_ages <- climate_df$bin[climate_df$Dataset_ID == Dataset_ID]
   record_tree_cover <- pollen_df$tree_REVEALS[pollen_df$Dataset_ID == Dataset_ID]
+  
+  if(length(continuous_temp)==0) return()
   
   surrogate_per_record(record_ages,
                        continuous_temp,

@@ -18,7 +18,7 @@ pollen <- read.csv(pollen_file) %>%
   summarize_all(mean) %>% 
   filter(bin <= 11000)
 
-for(climate_source in climate_sources[2:3]){
+for(climate_source in climate_sources){
   
   #get continuous record climate
   climate_file <- paste0("input/MPI_ESM/",climate_source,"/",
@@ -27,7 +27,8 @@ for(climate_source in climate_sources[2:3]){
     climate_file <- paste0("input/",climate_source,"/",
                            ifelse(sub,"sub_",""),"points_cont_CHELSA.csv")
   }
-  climate <- read.csv(climate_file)
+  climate <- read.csv(climate_file) %>% 
+    filter(!is.na(TJJA))
   
   #make surrogates for all record locations
   IDs <- unique(pollen$Dataset_ID)

@@ -17,12 +17,25 @@
                          n = ifelse(sub,
                                     2000,
                                     40000),
-                         type = "random") %>% 
+                         type = "regular") %>% 
     sf::st_as_sf() %>% 
     tibble::rowid_to_column("ID")
 }
 rm(bound)
 rm(land)
+
+#extract data from GLC and remove points with anthropogenic influence
+{
+  GLC_file <- paste0("input/GLC2000/",
+                     ifelse(sub,"sub_",""),
+                     "glc2000_v1_1.tif")
+  GLC <- raster::raster(GLC_file,
+                        proxy = TRUE)
+  GLC <- raster::extract(GLC,
+                         points)
+  points <- points[!(GLC %in% c(16,17,18,20,21,22,23)),]
+  
+}
 #extract data from MODIS
 {
   MODIS_files <- list.files(path = "input/MODIS",
@@ -50,7 +63,7 @@ rm(land)
       
     MODIS_forest <- stars::st_extract(proxy_MODIS,
                                       sf::st_transform(points,
-                                                       st_crs(proxy_MODIS))) %>% 
+                                                       sf::st_crs(proxy_MODIS))) %>% 
       sf::st_drop_geometry()
     cbind(points,tree = MODIS_forest[,1],year = year) %>% 
       return()

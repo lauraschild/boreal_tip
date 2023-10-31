@@ -7,14 +7,14 @@
 
 rm(list = ls())
 
-sub <- TRUE
+sub <- FALSE
 
 #please adjust the working directory to the repository path
 setwd(".")
 
 {####working directory check ####
   #script to check the working directory
- cat("\n\t\tINFO\nYou will need to change the working directory to the repository path, i.e. '../boreal_tip'. 
+  cat("\n\t\tINFO\nYou will need to change the working directory to the repository path, i.e. '../boreal_tip'. 
     \nAlternatively you can open the R Project located in the repository first and then open this script. The working directory will then be set automatically.")
   
   if(!grepl(pattern = "boreal_tip$",getwd())){

@@ -87,8 +87,8 @@
       if(!sub) MPI <- terra::rotate(MPI)
       MPI <- MPI - 273.15
       MPI_summer <- lapply(seq(0,12*99,12),
-                           function(x) calc(MPI[[(6:8)+x]],mean))%>% 
-        brick()
+                           function(x) raster::calc(MPI[[(6:8)+x]],mean))%>% 
+        raster::brick()
       names(MPI_summer) <- (Age_BP-1):(Age_BP-100) 
       MPI_TJJA <-raster::extract(MPI_summer,
                                  points) %>% 

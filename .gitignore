@@ -2,5 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
-input*
+input/*
 output/figures*
+output/tables/surrogates/*
+!output/tables/surrogates/.gitkeep
+!output/figures/.gitkeep
