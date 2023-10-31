@@ -3,7 +3,3 @@
 .RData
 .Ruserdata
 input/*
-output/figures*
-output/tables/surrogates/*
-!output/tables/surrogates/.gitkeep
-!output/figures/.gitkeep
