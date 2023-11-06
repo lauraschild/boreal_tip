@@ -24,10 +24,11 @@ packages <- c("dplyr",
               "terra",
               "data.table",
               "ggsci",
-              "rnaturalearth")
+              "rnaturalearth",
+              "zen4R")
 
 #check for existence
-missing <- packages[unlist(lapply(packages,package_exists))]
+missing <- packages[!unlist(lapply(packages,package_exists))]
 
 if(length(missing) >0){
   cat("\nYou are missing the following packages: ")
@@ -49,7 +50,7 @@ if(length(missing) >0){
   
 }
 
-missing <- packages[unlist(lapply(packages,package_exists))]
+missing <- packages[!unlist(lapply(packages,package_exists))]
 
 if(length(missing) == 0){
   #loaded from beginning
