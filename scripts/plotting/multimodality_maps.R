@@ -133,6 +133,11 @@ ggsave(paste0("output/figures/publication/",
        dpi = 300,
        width = 7.16,
        height = 5)
+ggsave(paste0("output/figures/publication/",
+              ifelse(sub,"sub_",""),"bimodality_map.pdf"),
+       dpi = 300,
+       width = 7.16,
+       height = 5)
 
 
 legacy <- read.csv("input/Pollen/reveals2.csv") %>% 
@@ -157,7 +162,7 @@ ggplot(data = world)+
                     breaks = c("TRUE") )+
   scale_alpha_continuous(range = c(0.2,0.5),
                          guide = "none")+
-  theme_void()+
+  theme_void(base_size = 8)+
   theme(legend.position = "bottom",
         legend.title = element_blank(),
         strip.text.x = element_text(size = 9, vjust = 1, margin = margin(0,0,5,0)),
@@ -166,6 +171,11 @@ ggplot(data = world)+
 
 ggsave(paste0("output/figures/publication/",
        ifelse(sub,"sub_",""),"bimodality_map_pollen.png"),
+       dpi = 300,
+       width = 7.16,
+       height = 2)
+ggsave(paste0("output/figures/publication/",
+              ifelse(sub,"sub_",""),"bimodality_map_pollen.pdf"),
        dpi = 300,
        width = 7.16,
        height = 2)

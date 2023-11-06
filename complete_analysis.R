@@ -1,9 +1,7 @@
-#this script will let you run the complete analysis within a geographical subset
-#all of the data necessary is already in this repository
-#you won't need to download anything
-#of course the results will differ from those with the entire data set, but you will be able to follow and check the code
-#geographical subset boundaries:
-#xlim = 5, xmax = 15, ymin = 45, ymax =55
+#this script will let you run the complete analysis for the entire study area
+#as this involves the extraction of data from many climate and forest cover rasters this will take a while
+#when running for the first time the data will also be downloaded, which will take up to several hours
+#you can also run the analyses using the subset option (see other script or adjust sub boolean)
 
 rm(list = ls())
 
@@ -25,6 +23,12 @@ setwd(".")
 
 #checking if necessary packages are installed
 source("scripts/packages.R")
+
+#get the input folder from zenodo
+source("scripts/download/download_input.R")
+
+#downloading the necessary data (after checking if it has already been downloaded)
+source("scripts/download.R")
 
 #extracting random points for modern climate and forest cover
 source("scripts/extraction/extract_modern.R")

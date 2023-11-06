@@ -26,6 +26,9 @@ setwd(".")
 #checking if necessary packages are installed
 source("scripts/packages.R")
 
+#check if input folder from Zenodo was downloaded (and download if needed)
+source("scripts/downloads/download_input.R")
+
 #extracting random points for modern climate and forest cover
 source("scripts/extraction/extract_modern.R")
 

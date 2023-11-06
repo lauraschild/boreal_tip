@@ -1,7 +1,5 @@
 #make pretty stability landscape
 rm(list = ls())
-library(tidyverse)
-sub = TRUE
 
 path <- "output/tables/stability_landscapes"
 file_REVEALS <- paste0(ifelse(sub,"sub_",""),
@@ -101,6 +99,12 @@ stable_df %>%
 ggsave(paste0("output/figures/publication/",
               ifelse(sub,"sub_",""),
               "landscapes.png"),
+       width = 7.16,
+       height = 3,
+       dpi = 300)
+ggsave(paste0("output/figures/publication/",
+              ifelse(sub,"sub_",""),
+              "landscapes.pdf"),
        width = 7.16,
        height = 3,
        dpi = 300)

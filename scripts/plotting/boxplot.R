@@ -64,3 +64,8 @@ ggsave(paste0("output/figures/publication/",
        width = 7.16,
        height = 4,
        dpi = 300)
+ggsave(paste0("output/figures/publication/",
+              ifelse(sub,"sub_",""),"boxplot.pdf"),
+       width = 7.16,
+       height = 4,
+       dpi = 300)
