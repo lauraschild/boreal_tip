@@ -15,7 +15,7 @@ setwd(".")
   cat("\n\t\tINFO\nYou will need to change the working directory to the repository path, i.e. '../boreal_tip'. 
     \nAlternatively you can open the R Project located in the repository first and then open this script. The working directory will then be set automatically.")
   
-  if(!grepl(pattern = "boreal_tip$",getwd())){
+  if(!grepl(pattern = "boreal_tip-main$",getwd())){
     warning("It looks like you didn't adjust the working directory to the repository path yet.")
     warning("\n(Unless you renamed the directory. In that case you may ignore this warning.)")
   }
@@ -25,7 +25,7 @@ setwd(".")
 source("scripts/packages.R")
 
 #get the input folder from zenodo
-source("scripts/download/download_input.R")
+source("scripts/downloads/download_input.R")
 
 #downloading the necessary data (after checking if it has already been downloaded)
 source("scripts/download.R")
