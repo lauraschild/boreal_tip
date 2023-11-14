@@ -25,7 +25,14 @@ packages <- c("dplyr",
               "data.table",
               "ggsci",
               "rnaturalearth",
-              "zen4R")
+              "zen4R",
+              "RTools",
+              "ncdf4",
+              "pastecs",
+              "splus2R",
+              "zoo",
+              "diptest",
+              "multimode")
 
 #check for existence
 missing <- packages[!unlist(lapply(packages,package_exists))]
