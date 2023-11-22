@@ -1,5 +1,4 @@
 #download MPI-ESM transient deglaciation paleo climate simulations
-rm(list = ls())
 
 #list MPI model runs
 dirs <- list.dirs("input/MPI_ESM",
@@ -30,7 +29,6 @@ for(directory in dirs){
     #download
     download.file(link,
                   file.path(directory,name),
-                  method = "wget",
                   quiet = TRUE)
   }
   

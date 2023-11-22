@@ -1,5 +1,4 @@
 #download CHELSA-TraCE21k paleo climate
-rm(list = ls())
 files <- list.files("input/CHELSA_TraCE")
 {
     cat("\n Downloading CHELSA-TraCE paleo climate.")
@@ -20,7 +19,6 @@ files <- list.files("input/CHELSA_TraCE")
       if(!file.exists(dest)){
         download.file(path,
                       dest,
-                      method = "wget",
                       quiet = TRUE)
       }
       

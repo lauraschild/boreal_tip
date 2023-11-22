@@ -1,5 +1,4 @@
 #download CRU modern climate data
-rm(list = ls())
 files <- list.files("input/CRU")
 
 {
@@ -22,7 +21,6 @@ files <- list.files("input/CRU")
       if(!file.exists(dest)){
         download.file(path,
                       dest,
-                      method = "wget",
                       quiet = TRUE)
         R.utils::gunzip(dest,
                         remove=FALSE)
