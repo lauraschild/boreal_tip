@@ -26,7 +26,6 @@ packages <- c("dplyr",
               "ggsci",
               "rnaturalearth",
               "zen4R",
-              "RTools",
               "ncdf4",
               "pastecs",
               "splus2R",
@@ -39,7 +38,7 @@ missing <- packages[!unlist(lapply(packages,package_exists))]
 
 if(length(missing) >0){
   cat("\nYou are missing the following packages: ")
-  cat(paste("\n",packages))
+  cat(paste("\n",missing))
   auto <- readline("Would you like to install them now? (Y or N): ")
   
   while(!(auto %in% c("N","Y"))){

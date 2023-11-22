@@ -3,13 +3,13 @@
 
 CHELSA_check <- file.exists(paste0("input/CHELSA_TraCE/",
                                    ifelse(sub,"sub_",""),
-                                   "points_pollen_CHELSA.csv"))
+                                   "points_cont_CHELSA.csv"))
 glac1d_check <- file.exists(paste0("input/MPI_ESM/glac1d/",
                                    ifelse(sub,"sub_",""),
-                                   "points_pollen_MPI.csv"))
+                                   "points_cont_MPI.csv"))
 ice6g_check <- file.exists(paste0("input/MPI_ESM/ice6g/",
                                   ifelse(sub,"sub_",""),
-                                  "points_pollen_MPI.csv"))
+                                  "points_cont_MPI.csv"))
 
 #get spatial and temporal resolution from pollen records
 if(sum(CHELSA_check,glac1d_check,ice6g_check) < 3){

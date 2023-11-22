@@ -2,10 +2,11 @@ This repository holds the code needed to reproduce results for the manuscript "L
 As the analyses and associated download are quite computation (and time) intensive we provide three options:
 	1. Running a geographical subset.
 		For this option the code will only run on a geographical subset. The input for this analysis option is provided in a Zenodo directory and will be downloaded automatically
-		when running the main script for the subset analysis. The Zenodo directory has a size of 790 MB (downloading depends on your network speed but takes approximately 1 minute).
+		when running the main script for the subset analysis. The Zenodo directory has a size of 790 MB (downloading depends on your network speed but takes approximately 2 minutes).
 		In order to run the subset analysis you only need to run the script "subset_analysis.R" located in the root of the directory.
 		You can find results from the analyses in the output folder. All of the results will have the prefix "sub_". Needless to say, the results will differ significantly
 		from the manuscript results due to the geographical subset.
+		This depending on your machine this option will roughly take between 20 and 60 minutes to run.
 	2. Running the entire analyses
 		For this option the code will download all necessary climate and land cover data from different sources. The input directory provided in Zotero is also necessary for
 		this analysis option. It includes the MODIS data, Pollen data and paths for the other data sources. The download for the complete original data will take roughly 1 hour.
