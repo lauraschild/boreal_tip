@@ -14,11 +14,12 @@ ice6g_check <- file.exists(paste0("input/MPI_ESM/ice6g/",
 #get spatial and temporal resolution from pollen records
 if(sum(CHELSA_check,ice6g_check,glac1d_check) < 3){
   {
-    pollen <- read.csv(paste0("input/Pollen/",
-                              ifelse(sub,
-                                     "sub_",
-                                     ""),
-                              "reveals2.csv"))
+    # pollen <- read.csv(paste0("input/Pollen/",
+    #                           ifelse(sub,
+    #                                  "sub_",
+    #                                  ""),
+    #                           "reveals_large.csv"))
+    pollen <- read.csv(pollen_file)
     
     #bin into 100yr time slices for CHELSA-TraCE and MPI-ESM
     binned_coords <- pollen %>% 

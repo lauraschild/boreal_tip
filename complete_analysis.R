@@ -30,6 +30,8 @@ source("scripts/downloads/download_input.R")
 #downloading the necessary data (after checking if it has already been downloaded)
 source("scripts/download.R")
 
+pollen_file <- "input/pollen/final_reveals_all.csv"
+
 #extracting random points for modern climate and forest cover
 source("scripts/extraction/extract_modern.R")
 
@@ -38,6 +40,7 @@ source("scripts/extraction/extract_paleo_pollen.R")
 
 #make stability landscapes from modern and paleo data
 #you can have a look at the produced landscapes in the figures directory labeled "additional"
+select <- dplyr::select
 source("scripts/landscaping/make_landscapes.R")
 
 #get continuous paleo climate
@@ -47,9 +50,21 @@ source("scripts/extraction/extract_paleo_continuous.R")
 source("scripts/surrogates/make_surrogates.R")
 
 #analyse gridded multimodality
+exclude_temp <- FALSE
 source("scripts/multimodality/multimod_tests.R")
 
 #plot publication figures with results
 source("scripts/plotting/multimodality_maps.R")
 
 source("scripts/plotting/boxplot.R")
+
+cowplot::plot_grid(p1,p2,
+                   nrow = 1,
+                   labels = "auto")
+
+ggsave("output/figures/publication/panels_combined_weird_surr.png",
+       dpi = 300,
+       width = 14,
+       height = 5,
+       unit = "in") 
+

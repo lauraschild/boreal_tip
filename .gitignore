@@ -12,3 +12,6 @@ output/tables/multimodality/sub*
 output/tables/stability_landscapes/sub*
 output/tables/surrogates/sub*
 input/*
+output_large/*
+output_old/*
+output_old_too/*

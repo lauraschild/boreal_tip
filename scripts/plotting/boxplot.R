@@ -44,10 +44,10 @@ results <- lapply(surrogates,
   bind_rows() %>% 
   rbind(bootstrap_Pollen)
 
-results %>% 
+p2 <- results %>% 
   ggplot(aes(factor(tree_type,
                     levels = c("uni","tip","Pollen"),
-                    labels = c("unimodal surrogate","tipping surrogate","pollen-based tree cover")),
+                    labels = c("unimodal surrogate","alternative stability surrogate","pollen-based tree cover")),
              multistab,
              fill = tree_type,
              col = tree_type))+
@@ -59,12 +59,15 @@ results %>%
   theme_light()+
   theme(legend.position = "none")
 
-ggsave(paste0("output/figures/publication/",
+
+ggsave(plot = p2,
+       filename = paste0("output/figures/publication/",
               ifelse(sub,"sub_",""),"boxplot.png"),
        width = 7.16,
        height = 4,
        dpi = 300)
-ggsave(paste0("output/figures/publication/",
+ggsave(plot = p2,
+       filename = paste0("output/figures/publication/",
               ifelse(sub,"sub_",""),"boxplot.pdf"),
        width = 7.16,
        height = 4,

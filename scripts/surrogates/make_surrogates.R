@@ -3,11 +3,12 @@
 
 climate_sources <- c("CHELSA_TraCE","glac1d","ice6g")
 
-source("scripts/surrogates/surrogate_functions.R")
+source("scripts/surrogates/surrogate_functions3.R")
 #load pollen-based forest cover and bin into 100yr slices
-pollen_file <- paste0("input/Pollen/",
-                      ifelse(sub,"sub_",""),
-                      "reveals2.csv")
+# pollen_file <- paste0("input/Pollen/",
+#                       ifelse(sub,"sub_",""),
+#                       "reveals_large.csv")
+pollen_file <- pollen_file
 
 pollen <- read.csv(pollen_file) %>% 
   mutate(bin = as.numeric(as.character(cut(Age_BP,

@@ -9,10 +9,12 @@ landscape_types <- c("modern",
                      "ice6g")
 
 for(landscape in landscape_types){
+  print(landscape)
   #load forest cover
-  forest_file <- paste0("input/pollen/",
-                 ifelse(sub,"sub_",""),
-                 "reveals2.csv")
+  # forest_file <- paste0("input/pollen/",
+  #                ifelse(sub,"sub_",""),
+  #                "reveals_large.csv")
+  forest_file <- pollen_file
   if(landscape == "modern"){
     forest_file <- paste0("input/MODIS/",ifelse(sub,"sub_",""),"point_MODIS.csv")
     
@@ -54,7 +56,8 @@ for(landscape in landscape_types){
   complete <-merge(forest,
                    climate,
                    by = c("Dataset_ID","bin")) %>% 
-    mutate(cell = 1)
+    mutate(cell = 1) #%>% 
+    #filter(Latitude >=+ 55)
   
   #make landscape intervals
   steps <- make_steps(100,

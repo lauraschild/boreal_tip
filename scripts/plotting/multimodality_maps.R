@@ -85,7 +85,7 @@ df <- df %>%
 
 df$tree_type <- factor(df$tree_type,
                        levels= c("uni","tip","Pollen"),
-                       labels = c("unimodal surrogate", "tipping surrogate", "pollen-based tree cover"))
+                       labels = c("unimodal surrogate", "alternative stability surrogate", "pollen-based tree cover"))
 
 world <- rnaturalearth::ne_countries(scale = "small",
                                      returnclass = "sf")
@@ -93,7 +93,7 @@ mycols <- c("black",ggsci::pal_npg()(1))
 names(mycols) <- c("FALSE","TRUE")
 df$weight[df$weight == 0] <- NA
 
-ggplot(data = world)+
+p1 <- ggplot(data = world)+
   geom_sf(col = "gainsboro",
           fill = "gainsboro")+
   coord_sf(ylim = c(42,72))+
@@ -128,19 +128,22 @@ ggplot(data = world)+
         legend.text = element_text(size = 8),
         panel.spacing = unit(0.75,"lines"))
 
-ggsave(paste0("output/figures/publication/",
+
+ggsave(plot = p1,
+       filename = paste0("output/figures/publication/",
               ifelse(sub,"sub_",""),"bimodality_map.png"),
        dpi = 300,
        width = 7.16,
        height = 5)
-ggsave(paste0("output/figures/publication/",
+ggsave(plot = p1,
+       filename = paste0("output/figures/publication/",
               ifelse(sub,"sub_",""),"bimodality_map.pdf"),
        dpi = 300,
        width = 7.16,
        height = 5)
 
 
-legacy <- read.csv("input/Pollen/reveals2.csv") %>% 
+legacy <- read.csv(pollen_file) %>% 
   distinct(Longitude, Latitude)
 df$weight[is.na(df$weight)] <- 0
 ggplot(data = world)+

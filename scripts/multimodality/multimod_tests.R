@@ -5,9 +5,11 @@ data_types <- c("pollen","CHELSA_TraCE", "glac1d","ice6g")
 
 for(data_type in data_types){
   #load tree cover data
-  tree_file <- paste0("input/Pollen/", 
-                      ifelse(sub,"sub_",""),
-                      "reveals2.csv")
+  # tree_file <- paste0("input/Pollen/", 
+  #                     ifelse(sub,"sub_",""),
+  #                     "reveals_large.csv")
+  tree_file <- pollen_file
+
   if(data_type != "pollen"){
     tree_file <- paste0("output/tables/surrogates", ifelse(sub,"/sub_","/"),
                         data_type,".csv")
@@ -22,6 +24,14 @@ for(data_type in data_types){
                          ymx = 70)
   raster::values(grid) <-  1:(5*36)
   
+  if(exclude_temp){
+    grid <- raster::raster(ncol = 36,
+                           nrow = 3,
+                           ymn = 55,
+                           ymx = 70)
+    raster::values(grid) <-  1:(3*36)
+  }
+  
   trees$cell <- raster::extract(grid,
                                 trees[,c("Longitude","Latitude")])
   if("slice" %in% names(trees)){
@@ -33,11 +43,11 @@ for(data_type in data_types){
       filter(!is.na(cell),
              Age_BP <= 8000)
   }
-
   
   cells <- unique(trees$cell)
   
   multimod_per_cell <- function(cell_number){
+    print(cell_number)
     pure_trees <- trees %>% 
       filter(cell == cell_number) %>% 
       select(starts_with("tree"))
