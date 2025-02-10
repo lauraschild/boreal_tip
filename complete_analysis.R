@@ -1,3 +1,4 @@
+
 #this script will let you run the complete analysis for the entire study area
 #as this involves the extraction of data from many climate and forest cover rasters this will take a while
 #when running for the first time the data will also be downloaded, which will take up to several hours
@@ -30,7 +31,7 @@ source("scripts/downloads/download_input.R")
 #downloading the necessary data (after checking if it has already been downloaded)
 source("scripts/download.R")
 
-pollen_file <- "input/pollen/final_reveals_all.csv"
+pollen_file <- "input/pollen/final_reveals_large.csv"
 
 #extracting random points for modern climate and forest cover
 source("scripts/extraction/extract_modern.R")
@@ -62,7 +63,7 @@ cowplot::plot_grid(p1,p2,
                    nrow = 1,
                    labels = "auto")
 
-ggsave("output/figures/publication/panels_combined_weird_surr.png",
+ggsave("output/figures/publication/panels_combined.png",
        dpi = 300,
        width = 14,
        height = 5,
