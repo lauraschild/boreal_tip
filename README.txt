@@ -13,7 +13,7 @@ As the analyses and associated download are quite computation (and time) intensi
 		The analysis will take a long time due to data extraction and surrogate creation. Once the downloads are complete it will take approximately another hour.
 		You can find the results from the analyses in the output folder. 
 	3. Re-creating important figures
-		The repository already includes analysis output in the output folder. If you don't want to run the entire analyes you can have a look at the tables and recreate 
+		The repository already includes analysis output in the output folder. If you don't want to run the entire analsyes you can have a look at the tables and recreate 
 		figures 5 and 6 from the manuscript.
 
 Technical specifications:
@@ -33,7 +33,7 @@ Data availability:
 		-GLC2000:  https://forobs.jrc.ec.europa.eu/glc2000
 
 		- Pollen-based tree cover is included completely in this repository. Original data can be downloaded from:
-			https://doi.pangaea.de/10.1594/PANGAEA.961588
+			https://doi.org/10.1594/PANGAEA.974798
 		- MODIS44B v006 is no longer available through NASA. We included extracted point data in this repository. Currently a version is archieved on google earth engine 
 			https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD44B
 

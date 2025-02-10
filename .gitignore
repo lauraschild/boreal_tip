@@ -2,10 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
-!output/figures/additional/stability_landscapes
 output/figures/additional/stability_landscapes/*
 !output/figures/additional/stability_landscapes/.gitkeep
-!output/figures/publication
 output/figures/publication/*
 !output/figures/publication/.gitkeep
 output/tables/multimodality/sub*
